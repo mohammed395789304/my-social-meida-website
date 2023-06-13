@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <title>Document</title>
+</head>
+<div id="loader" style="background-color: rgba(235, 99, 178, 0.803);position: fixed ; top:0 ;  bottom: 0; ;left: 0;right: 0; margin: auto auto;display: flex ;justify-content: center; align-items: center;z-index: 1000;width: 100px;height:100px;border-radius: 25px">
+
+    <div class="lds-facebook"><div></div><div></div><div></div></div>
+</div>
+<!-- start header  -->
+<header class="container-fluid rose  ">
+    <nav class="navbar navbar-expand-lg  container align-content-center justify-content-around " id="nav_head_content">
+        <div class="container-fluid ">
+            <a class="navbar-brand  white" href="Home.html">CHAOS_CODE(🐺)
+
+</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link  white" aria-current="page" href="Home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  white" aria-current="page" href="Profile.html">my profile</a>
+                    </li>
+
+
+                </ul>
+                <ul class=" navbar-nav mb-2 mb-lg-0">
+
+                    <!-- none logied in -->
+
+
+
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class=" border-0  nav-link   white no rounded-5" data-bs-toggle="modal"
+                            data-bs-target="#LoginModal" id="Login-btn">Login</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class=" border-0 nav-link    white no rounded-5" id="Sign Up-btn" data-bs-toggle="modal"
+                            data-bs-target="#SignUpModal">Sign Up</a>
+                    </li>
+
+                    <!-- none logied in end -->
+
+                    <li class="nav-item">
+                        <a class=" border-0  nav-link   white no rounded-5" data-bs-toggle="modal"
+                            data-bs-target="#LogOutModal" onclick="LogOut()" id="LogOut-btn"
+                            style="display: none;">LogOut</a>
+
+                    </li>
+                    <li class="nav-item"> <a class=" border-0 nav-link   disop  white  rounded-5 " id="nav_user_name"
+                            style="font-weight: bold ;letter-spacing: 4px; cursor: pointer;">@name</a>
+                    </li>
+                    <li>
+
+                        <div class=" nav-item ">
+
+                            <img src="" 
+                                style="height: 40px; width:40px; border: solid gray 1px; margin-left: 20px;"
+                                class="rounded-5 dispa " ; id="picture">
+
+                    </li>
+                    <!-- logied in end -->
+                </ul>
+                <!-- start  alerts  -->
+                <div id="success-alert"
+                    style="position: fixed ;z-index: 99999;width: 35%; text-align: center; border-radius: 15px;   bottom: 0%; right: 0%;  "
+                    class=" show fade  pico white  "> </div>
+                <div id="success-not-alert"
+                    style="position: fixed ;z-index: 99999;width: 35%; text-align: center; border-radius: 15px;   bottom: 0%; right: 0%;  "
+                    class=" show fade  pico white  "> </div>
+
+                <!-- end  alerts  -->
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+
+
+<!-- modals Start -->
+<!-- login modal Start -->
+<div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h1 class="modal-title fs-5" id="LoginModalLabel">Login</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> UserName:</label>
+                        <input type="text" class="form-control" id="username-input" placeholder="Example: Mohammed"
+                            value="moh900">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">PassWord:</label>
+                        <input class="form-control" id="Passowrd-input" type="password" placeholder="Example:123456"
+                            value="moh900"></input>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="Login()">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- first -->
+<div class="modal fade" id="SignUpModal" tabindex="-1" aria-labelledby="SignUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h1 class="modal-title fs-5" id="SignUpModalLabel">Sign Up</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> UserName:</label>
+                        <input type="text" class="form-control" id="username-input2" placeholder="Example: Mohammed"
+                            value="moh900222"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"> Your Photo:</label>
+                        <input type="file" class="form-control" id="Photo" value=""></input>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">PassWord:</label>
+                        <input class="form-control" id="Passowrd-input2" type="password" placeholder="Example:123456"
+                            value="moh900222"></input>
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label for="Name-text" class="col-form-label">Name:</label>
+                        <input class="form-control" id="name-input2" type="text" placeholder="Example:123456"
+                            value="mohammed999222"></input>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick=" Sign_Up()"> Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- login modal  End-->
+<!-- modals end -->
+<!-- end header -->
+
+<!-- profile details -->
+<div id="profile_father" >
+ 
+</div>
+<div id="user_posts">
+    
+</div>
+
+<!--ADD BUTTON -->
+<a class="text-decoration-none  picow add " data-bs-toggle="modal" data-bs-target="#AddBtnModal"
+data-bs-whatever="@getbootstrap" id="AddBtn"><i class="fa-solid fa-circle-plus " style=" font-size: 4rem;"></i></a>
+
+
+<div class="modal fade" id="AddBtnModal" tabindex="-1" aria-labelledby="AddBtnModalabel" aria-hidden="true">
+    <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="AddBtnModalabel">Creat New Post</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="Title-name" class="col-form-label">Title:</label>
+                                <input type="text" class="form-control" id="Title-name">
+                                <input type="hidden" id="post_id_input" value="">
+                            </div>
+
+
+
+                            <div class="mb-3">
+                                <label for="Content-text" class="col-form-label">Content:</label>
+                                <input type="text" class="form-control" id="Content-text"></input>
+                            </div>
+
+
+
+                            <div class="mb-3">
+                                <label for="Image-text" class="col-form-label">Image:</label>
+                                <input type="file" class="form-control" id="Image-text"></input>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="AddNewPost() " >Creat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End main  -->
+
+        </body>
+
+
+
+
+
+        
+</html>
+<script src="home.js"></script>
+<script src="profile.js"></script>
+

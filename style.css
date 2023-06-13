@@ -1,0 +1,211 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(190, 9, 118, 0.147);
+
+}
+
+.rose {
+    background-color: rgb(190, 9, 117);
+}
+
+.white {
+    color: white;
+}
+
+.pico {
+    background-color: rgb(190, 9, 117);
+}
+
+.picow {
+    color: rgb(190, 9, 117);
+}
+
+.large {
+    font-size: 1em;
+}
+
+.no:hover {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+
+}
+
+.post-image {
+    max-width: 700px;
+    width: 700px;
+
+    height: 100%;
+    max-height: 100%;
+
+}
+
+.post-image-cont {
+    background-color: rgb(190, 9, 117);
+    color: white;
+    max-width: 720px;
+    width: 700px;
+
+    height: 100%;
+    max-height: 100%;
+
+}
+
+
+a {
+    margin-left: 20px;
+}
+
+.add {
+    position: fixed;
+    right: 40px;
+    bottom: 45px;
+    z-index: 99;
+    display: block;
+}
+
+.add:hover {
+    border: none;
+    color: rgb(145, 10, 91)
+}
+
+.add:focus {
+    border: none;
+    color: rgb(81, 18, 56)
+}
+
+
+
+.dispa {
+    display: none;
+}
+
+.dispo:hover {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+/* side  page  styles  */
+#post_details p {
+    font-size: 4rem;
+    font-weight: 100;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+}
+
+#image {
+    cursor: pointer;
+}
+
+.edit-btn {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 20px;
+    border: solid gray 1px;
+    margin-left: 20px;
+}
+.delete-btn{
+    height: 50px;
+    width: 50px;
+    margin-bottom: 20px;
+    border: solid gray 1px;
+    background-color: rgb(197, 9, 197);
+    margin-left: 20px;
+    color: white;
+}   
+
+.edit-btn:hover {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 20px;
+    border: solid gray 1px;
+    margin-left: 20px;
+}
+.delete-btn:hover {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 20px;
+    border: solid gray 1px;
+    margin-left: 20px;
+    background-color: rgb(178, 0, 178);
+}
+
+.items-container {
+    width: auto;
+    max-width: 100%;
+    display: grid; 
+    grid-template-columns: repeat(4, minmax(25% , 1fr));
+    grid-template-areas: "item1  item2 item3  item4 ";
+    text-align: center;
+    align-items:center;
+    justify-content: space-around;
+    
+  }
+  
+  .item_1 {
+    grid-area: item1;
+    width: auto;
+    max-width: 100%;
+  }
+  
+  .item_2 {
+    grid-area: item2;
+    width: auto;
+    max-width: 100%;
+  }
+  
+  .item_3 {
+    grid-area: item3;
+    width: auto;
+    max-width: 100%;
+  }
+  .item_4 {
+    grid-area: item4;
+    width: auto;
+    max-width: 100%;
+  }
+  .pointer {
+    cursor: pointer;
+  }
+
+  .lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: rgb(67, 0, 40);;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 8px;
+      height: 64px;
+    }
+    50%, 100% {
+      top: 24px;
+      height: 32px;
+    }
+  }
+  

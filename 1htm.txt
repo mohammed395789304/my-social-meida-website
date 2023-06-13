@@ -1,0 +1,21 @@
+<div class="comments">                     
+<div class="post-details container
+    d-flex justify-content-center align-items-center
+    w-90  p-5 " id="post_details"> </div>
+
+<div class="container  d-flex justify-content-center align-items-center  w-90  p-5 " >
+
+        <div class="card post-image shadow">
+        <div style="margin-bottom: 20px;margin-top: 16px; padding-right: 24px;direction: rtl;" class="w-100 ">
+        <div class="d-flex align-items-center ">
+        <img src=${picture} alt="" class="pico rounded-5"
+        style="height: 50px; width:50px; border: solid gray 1px;" class="rounded-5" ;
+        id="picture">
+        <p style="margin-right: 15px;margin-top:15px; font-weight: bold; " id="user_name"> ${username}</p>
+</div>
+    <div>
+<h5 style="margin-top: 16px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fugiat tenetur suscipit.</h5>
+</div>
+
+</div>
+</div>
